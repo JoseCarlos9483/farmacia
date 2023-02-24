@@ -37,16 +37,6 @@ export class LoginService {
 
   isAuthenticated(): boolean {
     return (localStorage.getItem('token') !== null);
-    /* try{
-      var token = JSON.parse(localStorage.getItem('token')!);
-      const decodedToken = jwt.verify(token, this.key);
-      const expirationDate = new Date(decodedToken.exp * 1000);
-      const currentDate = new Date();
-
-
-    }catch{
-
-    } */
-    
+   
   }
 }
