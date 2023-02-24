@@ -1,0 +1,48 @@
+<div>
+    <div class="d-flex justify-content-center align-self-center p-2">
+        <h3>Crear</h3>
+    </div>
+    <div >
+        <div  class="alert alert-danger" role="alert" *ngIf="!success">			
+            {{message}}
+        </div>
+    </div>
+    <div class="container">
+        <div>   
+            <form (ngSubmit) = "saverNew()">
+                <div class="form-group">
+                  <label for="Nombre">Nombre</label>
+                  <input type="text" class="form-control" id="Nombre" placeholder="Nombre" [(ngModel)] = "createModel.nombre" name="nombre">
+                </div>
+                <div class="form-group">
+                  <label for="Concentracion">Concentracion</label>
+                  <input type="text" class="form-control" id="Concentracion" placeholder="Concentracion" [(ngModel)] = "createModel.concentracion" name="concentracion">
+                </div>
+                <div class="form-group">
+                    <label for="Concentracion">IdFarmaceutica</label>
+                    <input type="number" class="form-control" id="IdFarmaceutica" placeholder="IdFarmaceutica" [(ngModel)] = "createModel.idFarmaceutica" name="idFarmaceutica">
+                </div>
+                <div class="form-group">
+                    <label for="Precio">Precio</label>
+                    <input type="number" class="form-control" id="Precio" placeholder="Precio" [(ngModel)] = "createModel.precio" name="precio">
+                </div>
+                <div class="form-group">
+                    <label for="Stock">Stock</label>
+                    <input type="Stock" class="form-control" id="Stock" placeholder="Stock" [(ngModel)] = "createModel.stock" name="stock">
+                </div>
+                <div class="form-group">
+                    <label for="Presentacion">Presentacion</label>
+                    <input type="Presentacion" class="form-control" id="Presentacion" placeholder="Presentacion" [(ngModel)] = "createModel.presentacion" name="presentacion">
+                </div>                
+                <div class="row">
+                    <div class="form-group col-1">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                    <div class="form-group col-3">
+                        <a routerLink="/medicine" class="btn btn-danger">Cancelar</a>
+                    </div>
+                </div>
+              </form>
+        </div>
+    </div>
+</div>

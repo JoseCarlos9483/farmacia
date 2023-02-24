@@ -1,0 +1,54 @@
+<div class="container">
+    <div>
+        <div class="d-flex justify-content-center align-self-center p-2 ">
+            <h2>Medicamentos</h2>
+           
+        </div>
+        <div class="row alert alert-info">
+            <div class="col-auto">
+                <h5>Agregar nuevo elemento</h5>
+            </div>
+            <div class="col-auto">
+                <a type="button" class="btn btn-primary text-white" routerLink="crear">Agregar</a>
+            </div>
+        </div>
+        <div  class="alert alert-danger" role="alert" *ngIf="!success">			
+            {{message}}
+        </div>
+        <div class="alert alert-success" role="alert" *ngIf="alert">
+            Se actualizo correctamente
+          </div>
+        <div class="tableBody">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Concentracion</th>
+                    <th>IdFarmacia</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Presentacion</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>                 
+                    <tr *ngFor="let record of records | paginate: { itemsPerPage: pageSize, currentPage: page }" >
+                        <td>{{record.idMedicamento}}</td>
+                        <td>{{record.nombre}}</td>
+                        <td>{{record.concentracion}}</td>
+                        <td>{{record.idFarmacia}}</td>
+                        <td>{{record.precio}}</td>
+                        <td>{{record.stock}}</td>
+                        <td>{{record.presentacion}}</td>
+                        <td><a routerLink="edit/{{record.idMedicamento}}">Editar</a></td>
+                        <td><button class="btn btn-danger" (click)="deshabilitar(record.idMedicamento)">Eliminar </button></td>
+                    </tr>
+                </tbody>
+              </table>
+              <pagination-controls (pageChange)="page = $event" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+              
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div id="tituloLogin" class="d-flex justify-content-center">
+    <h3>Login Farmacia</h3>
+</div>
+<div id="divLogin" class="container d-flex justify-content-center align-self-center p-2 ">
+    <form (ngSubmit) = "submit()" >
+        <div class="form-group">
+          <label>Email address</label>
+          <input 
+            type="text"             
+            class="form-control" 
+            placeholder="Enter email"
+            [(ngModel)] = "loginRequest.user"
+            name="user"
+            >
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input 
+          type="password" 
+          class="form-control"
+           placeholder="Password"
+           [(ngModel)] = "loginRequest.password"
+           name="password"
+            >
+        </div>
+        <!-- <div *ngIf="Invalid()">			
+			<h3>Los valores no son validos</h3>
+        </div> -->
+        <div  class="alert alert-danger" role="alert" *ngIf="!alertMessageError">			
+			{{messageError}}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
