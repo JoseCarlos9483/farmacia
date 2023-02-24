@@ -9,7 +9,7 @@
     </div>
     <div class="container">
         <div>   
-            <form (ngSubmit) = "saverNew()">
+            <form (ngSubmit) = "saverNew()" autocomplete="off">
                 <div class="form-group">
                   <label for="Nombre">Nombre</label>
                   <input type="text" class="form-control" id="Nombre" placeholder="Nombre" [(ngModel)] = "createModel.nombre" name="nombre">

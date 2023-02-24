@@ -7,7 +7,7 @@
     </div>
     <div class="container">
         <div>   
-            <form (ngSubmit) = "saveInfo()">           
+            <form (ngSubmit) = "saveInfo()" autocomplete="off">           
                 <div class="form-group">
                   <label for="Nombre">Nombre</label>
                   <input type="text" class="form-control" id="Nombre" placeholder="Nombre" [(ngModel)]="data.nombre" name="nombre">

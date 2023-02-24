@@ -19,13 +19,14 @@ export class LoginComponent implements OnInit {
     password: "",
   };
   
+  
   alertMessageError: boolean = true;
   messageError: string = ""
 
   response!: IResponse<Iloginresponse>;
 
 
-  constructor(private router:Router, private LoginService: LoginService) { }
+  constructor(private router:Router, private LoginService: LoginService,) { }
 
   ngOnInit(): void {
     this.alertMessageError = true;
@@ -42,12 +43,20 @@ export class LoginComponent implements OnInit {
     this.LoginService.sendLogin(this.loginRequest)
       .subscribe(data => {
         this.response =  data;
-        this.alertMessageError = data.data.success;
-        this.messageError = data.message;
+        
         if(data.data.success){
+          this.token(this.response.data.token);
           this.router.navigate(['/medicine'])
         }
-      },error => console.error(error));
+        this.alertMessageError = data.data.success;
+        this.messageError = data.message;
+        this.loginRequest.user = "";
+        this.loginRequest.password = "";
+      },error => {
+        this.alertMessageError = false;
+        this.messageError = error;
+        this.router.navigate(['/login'])
+      });
 
   }
 
@@ -61,4 +70,8 @@ export class LoginComponent implements OnInit {
   }
 
   
+  token(token:string){
+    this.LoginService.saveToken(token);
+
+  }
 }

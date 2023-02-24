@@ -1,7 +1,12 @@
 <div class="container">
     <div>
         <div class="d-flex justify-content-center align-self-center p-2 ">
-            <h2>Medicamentos</h2>
+            <div class="col-10">
+                <h2>Medicamentos</h2>  
+            </div>
+            <div class="col-2">
+                <button class="btn btn-primary" (click)="logout()">Salir</button>
+            </div>
            
         </div>
         <div class="row alert alert-info">
@@ -9,7 +14,7 @@
                 <h5>Agregar nuevo elemento</h5>
             </div>
             <div class="col-auto">
-                <a type="button" class="btn btn-primary text-white" routerLink="crear">Agregar</a>
+                <a type="button" class="btn btn-success text-white" routerLink="crear">Agregar</a>
             </div>
         </div>
         <div  class="alert alert-danger" role="alert" *ngIf="!success">			

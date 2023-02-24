@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MedicineService } from './medicine.service';
 import { Paginator } from '../../Models/Paginator';
 import { MedicineDto } from '../../Models/Medicine/medicine-dto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-medicine',
@@ -21,7 +22,7 @@ export class MedicineComponent implements OnInit {
   message:string = "";
   alert:boolean = false;
 
-  constructor(private medicineService: MedicineService) { }
+  constructor(private router:Router, private medicineService: MedicineService) { }
 
   ngOnInit(): void {
     this.getAllData();
@@ -56,6 +57,12 @@ export class MedicineComponent implements OnInit {
           this.success = false;
           this.message = error
         })
+  }
+
+  logout(){
+
+    localStorage.removeItem('token');
+    this.router.navigate(['/login'])
   }
 
   
